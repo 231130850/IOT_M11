@@ -1,0 +1,126 @@
+/* === GLOBAL & LAYOUT === */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+    margin: 0; 
+    padding: 0; 
+    background-color: #f0f4f8;
+    color: #333; 
+    line-height: 1.6;
+}
+
+.container { 
+    max-width: 1100px; /* Lebih lebar */
+    margin: 50px auto; 
+    padding: 30px; 
+    background-color: white; 
+    border-radius: 15px; /* Sudut lebih membulat */
+    /* Shadow yang lebih dalam dan halus */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15); 
+}
+
+h1, h2 { 
+    color: #388E3C; /* Hijau yang lebih dalam */
+    text-align: center; 
+    margin-bottom: 25px;
+    font-weight: 700;
+}
+
+.grid { 
+    display: flex; 
+    flex-wrap: wrap; 
+    gap: 30px; 
+    justify-content: center; 
+    margin-top: 30px; 
+}
+
+.card { 
+    background-color: #E8F5E9;
+    padding: 25px;
+    border-radius: 12px;
+    width: 200px;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); 
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid #C8E6C9;
+}
+
+.card:hover {
+    transform: translateY(-5px); 
+    box-shadow: 0 12px 20px rgba(0, 0, 0, 0.15);
+}
+
+.card h3 {
+    color: #1B5E20;
+    font-size: 1.1em;
+    margin-top: 0;
+}
+
+.value { 
+    font-size: 3em;
+    font-weight: 900;
+    margin: 15px 0; 
+    color: #4CAF50; 
+}
+
+/* === LOGIN FORM === */
+.login-form { 
+    display: flex; 
+    flex-direction: column; 
+    max-width: 350px; 
+    margin: 100px auto;
+    padding: 30px; 
+    background-color: #fff; 
+    border-radius: 10px; 
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15); 
+}
+
+.login-form input, .login-form button { 
+    margin-bottom: 15px; 
+    padding: 12px; 
+    border-radius: 6px; 
+    border: 1px solid #bdbdbd; 
+    font-size: 1em;
+}
+
+.login-form button { 
+    background-color: #4CAF50; 
+    color: white; 
+    cursor: pointer; 
+    border: none; 
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.login-form button:hover {
+    background-color: #388E3C;
+}
+
+#login-error {
+    color: #D32F2F;
+    text-align: center;
+}
+
+/* === LOGOUT BUTTON & FOOTER === */
+#logout-btn { 
+    background-color: #F44336;
+    float: right; 
+    margin-top: -5px; 
+    padding: 10px 20px; 
+    border: none; 
+    border-radius: 6px; 
+    color: white; 
+    cursor: pointer; 
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+#logout-btn:hover {
+    background-color: #D32F2F; 
+}
+
+/* Timestamp */
+.container > p {
+    color: #757575;
+    font-size: 0.9em;
+    margin-top: 40px;
+}
