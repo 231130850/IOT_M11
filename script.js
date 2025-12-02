@@ -49,17 +49,17 @@ function listenToSensors() {
         const data = snapshot.val();
         if (data) {
             updateSoil(data.soilMoisture);
-            updateLight(data.lightlevel);
+            updateLight(data.lightLevel);
             updateBooleanSensor('motion', data.motion);
-            updateBooleanSensor('flame-status', data.flame);
-            updateBooleanSensor('object-status', data.object);
+            updateBooleanSensor('flame', data.flame);
+            updateBooleanSensor('object', data.object);
             updateTimestamp(data.timestamp);
         }
     });
 }
 
 function updateSoil(value) {
-    document.getElementById('soil-moisture').innerText = value + ' %';
+    document.getElementById('soilMoisture').innerText = value + ' %';
     const statusElement = document.getElementById('soil-status');
     
     if (value < 40) {
@@ -72,7 +72,7 @@ function updateSoil(value) {
 }
 
 function updateLight(value) {
-    document.getElementById('light-level').innerText = value + ' %';
+    document.getElementById('lightLevel').innerText = value + ' %';
     const statusElement = document.getElementById('light-status');
 
     if (value < 20) {
