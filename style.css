@@ -9,17 +9,16 @@ body {
 }
 
 .container { 
-    max-width: 1100px; /* Lebih lebar */
+    max-width: 1100px;
     margin: 50px auto; 
     padding: 30px; 
     background-color: white; 
-    border-radius: 15px; /* Sudut lebih membulat */
-    /* Shadow yang lebih dalam dan halus */
+    border-radius: 15px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15); 
 }
 
 h1, h2 { 
-    color: #388E3C; /* Hijau yang lebih dalam */
+    color: #388E3C;
     text-align: center; 
     margin-bottom: 25px;
     font-weight: 700;
