@@ -49,7 +49,7 @@ function listenToSensors() {
         const data = snapshot.val();
         if (data) {
             updateSoil(data.soilMoisture);
-            updateLight(data.lightLevel);
+            updateLight(data.lightlevel);
             updateBooleanSensor('motion', data.motion);
             updateBooleanSensor('flame', data.flame);
             updateBooleanSensor('object', data.object);

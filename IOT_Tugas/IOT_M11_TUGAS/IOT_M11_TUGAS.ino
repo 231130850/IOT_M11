@@ -40,13 +40,10 @@ bool objectDetected = false;
 // === TIMER ===
 unsigned long lastSensorUpdate = 0;
 const long sensorInterval = 5000; // Update setiap 5 detik untuk real-time monitoring
-
 // === NTP TIME CONFIG ===
 const char* ntpServer = "pool.ntp.org";
 const long gmtOffset_sec = 25200; // GMT+7 untuk Indonesia (7 * 3600)
 const int daylightOffset_sec = 0;
-
-
 const chat* ntpSer
 
 void setup() {
@@ -63,7 +60,7 @@ void setup() {
   // Connect WiFi
   connectWiFi();
   // Setup NTP Time
-  configTime(GMT_OFFSET_SEC, DAYLIGHT_OFFSET_SEC, ntpServer);
+  configTime(gmtOffset_sec, daylightOffset_sec, ntpServer);
   Serial.println("Sinkronisasi waktu dengan NTP...");
   delay(2000);
   // Firebase config
