@@ -72,7 +72,7 @@ function updateSoil(value) {
 }
 
 function updateLight(value) {
-    document.getElementById('lightLevel').innerText = value + ' %';
+    document.getElementById('lightlevel').innerText = value + ' %';
     const statusElement = document.getElementById('light-status');
 
     if (value < 20) {
