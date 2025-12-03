@@ -50,9 +50,9 @@ function listenToSensors() {
         if (data) {
             updateSoil(data.soilMoisture);
             updateLight(data.lightlevel);
-            updateBooleanSensor('motion', data.motion);
-            updateBooleanSensor('flame', data.flame);
-            updateBooleanSensor('object', data.object);
+            updateMotion(data.motion);
+            updateFlame(data.flame);
+            updateObject(data.object);
             updateTimestamp(data.timestamp);
         }
     });
@@ -62,12 +62,15 @@ function updateSoil(value) {
     document.getElementById('soilMoisture').innerText = value + ' %';
     const statusElement = document.getElementById('soil-status');
     
-    if (value < 40) {
+    if (value < 30) {
         statusElement.innerText = '⚠️ KERING, Perlu Penyiraman!';
-        statusElement.style.color = 'red';
+        statusElement.style.color = '#D32F2F';
+    } else if (value < 70) {
+        statusElement.innerText = '✔️ Cukup';
+        statusElement.style.color = '#388E3C';
     } else {
-        statusElement.innerText = '✔️ Kelembaban Cukup.';
-        statusElement.style.color = 'green';
+        statusElement.innerText = '💧 Basah';
+        statusElement.style.color = '#1976D2';
     }
 }
 
@@ -75,23 +78,60 @@ function updateLight(value) {
     document.getElementById('lightlevel').innerText = value + ' %';
     const statusElement = document.getElementById('light-status');
 
-    if (value < 20) {
-        statusElement.innerText = '⚠️ GELAP, Perlu Cahaya Tambahan.';
-        statusElement.style.color = 'red';
+    if (value < 30) {
+        statusElement.innerText = '⚠️ GELAP, Perlu Cahaya Tambahan!';
+        statusElement.style.color = '#D32F2F';
+    } else if (value < 70) {
+        statusElement.innerText = '✔️ Cukup';
+        statusElement.style.color = '#388E3C';
     } else {
-        statusElement.innerText = '✔️ Cahaya Cukup.';
-        statusElement.style.color = 'green';
+        statusElement.innerText = '☀️ Terang';
+        statusElement.style.color = '#FBC02D';
     }
 }
 
-function updateBooleanSensor(elementId, value) {
-    const element = document.getElementById(elementId);
+function updateMotion(value) {
+    const valElement = document.getElementById('motion');
+    const statusElement = document.getElementById('motion-status');
+    
     if (value === true) {
-        element.innerText = 'TERDETEKSI ⚠️';
-        element.style.color = 'red';
+        valElement.innerText = 'ADA'; 
+        statusElement.innerText = '⚠️ Terdeteksi'; 
+        statusElement.style.color = '#D32F2F';
     } else {
-        element.innerText = 'Aman';
-        element.style.color = 'green';
+        valElement.innerText = '--';
+        statusElement.innerText = '✔️ Aman'; 
+        statusElement.style.color = '#388E3C';
+    }
+}
+
+function updateFlame(value) {
+    const valElement = document.getElementById('flame');
+    const statusElement = document.getElementById('flame-status');
+    
+    if (value === true) {
+        valElement.innerText = '!!!';
+        statusElement.innerText = '🔥 KEBAKARAN!';
+        statusElement.style.color = '#D32F2F';
+    } else {
+        valElement.innerText = '--';
+        statusElement.innerText = '✔️ Aman';
+        statusElement.style.color = '#388E3C';
+    }
+}
+
+function updateObject(value) {
+    const valElement = document.getElementById('object');
+    const statusElement = document.getElementById('object-status');
+    
+    if (value === true) {
+        valElement.innerText = 'ADA';
+        statusElement.innerText = '⚠️ Terdeteksi';
+        statusElement.style.color = '#D32F2F';
+    } else {
+        valElement.innerText = '--';
+        statusElement.innerText = '✔️ Kosong';
+        statusElement.style.color = '#388E3C';
     }
 }
 
